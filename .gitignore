@@ -1,0 +1,56 @@
+# build artifacts
+*.exe
+*.obj
+*.o
+*.out
+
+# generated data（樣本自帶的紀錄檔除外，見下方白名單）
+*.csv
+*.log
+!samples_2025-C/mini_project_4/HIGH/mini_prj_4_90/decoder.log
+!samples_2025-C/mini_project_4/HIGH/mini_prj_4_90/encoder.log
+
+# editor/OS
+.DS_Store
+Thumbs.db
+
+# CI 測試輸出與老師的私人清單
+.ci_out/
+tools/ci/repos.txt
+
+# 老師私人筆記
+lectures/_private/
+
+# 防呆：學生名冊、成績、分組名單含個資，只能放私有 repo mmsp2026-private/roster/
+*.ods
+*.xlsx
+*.xls
+roster/
+*roster*
+*名冊*
+*名單*
+*成績*
+*.docx
+
+# 講義範例與 baseline 的執行檔、比對暫存（無副檔名）
+lectures/*/examples/utf8_dump
+lectures/*/examples/sticky_send
+lectures/*/examples/c_dump.txt
+lectures/*/examples/py_dump.txt
+lectures/*/bom_test.txt
+lectures/*/examples/huffman_trace
+lectures/*/examples/entropy
+lectures/*/examples/c_entropy.txt
+lectures/*/examples/py_entropy.txt
+lectures/*/examples/out_*bit.wav
+lectures/*/examples/tone_*.wav
+lectures/*/examples/ref.wav
+team_projects/*/baseline/chat
+team_projects/*/starter/textlink
+team_projects/*/starter/test_codec
+team_projects/*/starter/out/
+team_projects/*/starter/received/
+team_projects/*/starter/samples/
+
+# Python 的快取
+__pycache__/
