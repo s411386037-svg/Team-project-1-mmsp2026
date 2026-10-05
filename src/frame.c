@@ -1,6 +1,6 @@
 #include "textlink.h"
 
-/* TODO 1：將長度與 type 打包成 5 bytes 標頭。 */
+
 int frame_pack_header(uint8_t hdr[TL_HDR_LEN],
                       uint8_t type, size_t payload_len) {
     if (payload_len >= (size_t)TL_MAX_FRAME) {
@@ -18,7 +18,7 @@ int frame_pack_header(uint8_t hdr[TL_HDR_LEN],
     return TL_OK;
 }
 
-/* TODO 2：解析標頭，檢查長度是否合法。 */
+
 int frame_parse_header(const uint8_t hdr[TL_HDR_LEN],
                        uint8_t *type, size_t *payload_len) {
     uint32_t length = ((uint32_t)hdr[0] << 24)
@@ -36,7 +36,7 @@ int frame_parse_header(const uint8_t hdr[TL_HDR_LEN],
     return TL_OK;
 }
 
-/* starter 原有功能：傳送完整的 frame。 */
+
 int frame_send(socket_t s, uint8_t type,
                const uint8_t *payload, size_t len) {
     uint8_t hdr[TL_HDR_LEN];
@@ -57,7 +57,7 @@ int frame_send(socket_t s, uint8_t type,
     return rc;
 }
 
-/* starter 原有功能：接收完整的 frame。 */
+
 int frame_recv(socket_t s, uint8_t *type,
                uint8_t **payload, size_t *len) {
     uint8_t hdr[TL_HDR_LEN];
@@ -86,7 +86,7 @@ int frame_recv(socket_t s, uint8_t *type,
         return TL_ERR_NOMEM;
     }
 
-    /* 再收滿 payload。 */
+  
     if (n > 0) {
         rc = recv_all(s, buf, n);
         if (rc != TL_OK) {
