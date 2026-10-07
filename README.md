@@ -1,3 +1,5 @@
+# Team-project-1-mmsp2026
+test
 # TextLink
 
 TextLink 是以 C 實作的 TCP 傳輸程式，支援 UTF-8 文字聊天、文字檔與 WAV 檔傳輸。每次傳輸可選擇直接傳送（RAW）或使用 Huffman coding 壓縮（HUFF）；接收端會將資料還原為原始 bytes。
