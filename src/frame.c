@@ -1,9 +1,14 @@
 #include "textlink.h"
 
+static int valid_type(uint8_t type) {
+    return type == T_TEXT_RAW || type == T_TEXT_HUFF ||
+           type == T_FILE_BEGIN || type == T_FILE_DATA || type == T_FILE_END;
+}
+
 
 int frame_pack_header(uint8_t hdr[TL_HDR_LEN],
                       uint8_t type, size_t payload_len) {
-    if (payload_len >= (size_t)TL_MAX_FRAME) {
+    if (!valid_type(type) || payload_len >= (size_t)TL_MAX_FRAME) {
         return TL_ERR_PROTO;
     }
 
@@ -26,7 +31,7 @@ int frame_parse_header(const uint8_t hdr[TL_HDR_LEN],
                     | ((uint32_t)hdr[2] << 8)
                     | (uint32_t)hdr[3];
 
-    if (length == 0 || length > TL_MAX_FRAME) {
+    if (length == 0 || length > TL_MAX_FRAME || !valid_type(hdr[4])) {
         return TL_ERR_PROTO;
     }
 
