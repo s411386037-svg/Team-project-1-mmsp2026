@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""measure.py -- TextLink 重複量測與原始 CSV 記錄工具（V 角色新增）。
+r"""measure.py -- TextLink 重複量測與原始 CSV 記錄工具（V 角色新增）。
 
 本工具會執行 textlink.exe，收集每次傳輸的 STATS、程式結束碼、SHA-256，
 並寫進 CSV。它不需要任何額外安裝，只使用 Python 標準函式庫。
